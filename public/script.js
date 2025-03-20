@@ -2,12 +2,12 @@
 // Firebase Configuration
 // =======================
 const firebaseConfig = {
-  apiKey: "AIzaSyBiu9HA1_iqbxCb7-hC47Fe6MmRS4WRQ6g",
+  apiKey: "",
   authDomain: "datatransfer-ba0e0.firebaseapp.com",
   projectId: "datatransfer-ba0e0",
   storageBucket: "datatransfer-ba0e0.appspot.com",
-  messagingSenderId: "910386471061",
-  appId: "1:910386471061:web:bf07f0163dfd1aef84fb9c",
+  messagingSenderId: "",
+  appId: "",
   measurementId: "G-R6B5XZRRGE"
 };
 
