@@ -1,0 +1,240 @@
+/* Root Variables for Adjustability */
+:root {
+  --bg-base-color: #0d0d1a; /* Base background color */
+  --grid-color: rgba(255, 20, 147, 0.2); /* Neon grid lines */
+  --particle-color: rgba(0, 255, 204, 0.3); /* Particle glow */
+  --grid-speed: 10s; /* Animation speed for grid */
+  --particle-speed: 15s; /* Animation speed for particles */
+  --grid-intensity: 0.2; /* Opacity of grid lines */
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-base-color);
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Adjustable Background */
+.cyber-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Neon Grid Lines */
+.grid-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 50%, var(--grid-color) 50%),
+              linear-gradient(0deg, transparent 50%, var(--grid-color) 50%);
+  background-size: 50px 50px;
+  opacity: var(--grid-intensity);
+  animation: gridMove var(--grid-speed) infinite linear;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50px, -50px); }
+}
+
+/* Particle Layer */
+.particle-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--particle-color) 0%, transparent 70%);
+  opacity: 0.5;
+  animation: particlePulse var(--particle-speed) infinite alternate;
+}
+
+@keyframes particlePulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.05); opacity: 0.3; }
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 20, 147, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand, .nav-link {
+  color: #ff1493 !important;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.7);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  color: #00ffcc !important;
+  text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+/* Ticker */
+.ticker-container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+marquee.neon-text {
+  font-size: 1.3rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+}
+
+/* Main Container */
+.cyber-container {
+  background: rgba(20, 20, 40, 0.7);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 20, 147, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.cyber-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff1493;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.8), 0 0 40px rgba(0, 255, 204, 0.5);
+  animation: neonFlicker 1.5s infinite alternate;
+}
+
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
+  50% { opacity: 0.95; text-shadow: 0 0 30px rgba(255, 20, 147, 0.6); }
+}
+
+/* Cards */
+.cyber-card {
+  background: rgba(30, 30, 60, 0.5);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
+
+.cyber-card .card-title {
+  color: #00ffcc;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.hover-3d:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 50px rgba(255, 20, 147, 0.4);
+}
+
+/* Inputs */
+.cyber-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 20, 147, 0.5);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
+  outline: none;
+}
+
+.cyber-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Buttons */
+.cyber-btn {
+  background: linear-gradient(45deg, #ff1493, #00ffcc);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cyber-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.7);
+}
+
+.cyber-btn-outline {
+  background: transparent;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn-outline:hover {
+  background: rgba(0, 255, 204, 0.2);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.5);
+}
+
+/* Progress Bar */
+.cyber-progress {
+  height: 25px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 20, 147, 0.3);
+}
+
+.progress-bar {
+  background: linear-gradient(45deg, #ff1493, #00ffcc);
+  text-shadow: 0 0 5px rgba(255, 20, 147, 0.5);
+}
+
+/* QR Glow */
+.qr-glow {
+  padding: 10px;
+  background: rgba(0, 255, 204, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+}
+
+/* Neon Text */
+.neon-text {
+  color: #ff1493;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .cyber-container {
+    padding: 25px;
+  }
+  .cyber-title {
+    font-size: 2rem;
+  }
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+  .cyber-card {
+    margin-bottom: 20px;
+  }
+}
